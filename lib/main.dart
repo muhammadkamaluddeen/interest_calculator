@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(
@@ -63,6 +64,10 @@ class _SIFormState extends State<SIForm> {
               height: 20.0,
             ),
             TextFormField(
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+              ],
+
               style: textStyle,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
@@ -75,8 +80,8 @@ class _SIFormState extends State<SIForm> {
            controller: principalController,
              validator: (String value){
                 if(value.isEmpty) {
-                  // ignore: missing_return, missing_return
                   return 'Principal cannot be Empty!';
+                // ignore: missing_return
                 }
              },
             ),
@@ -85,6 +90,9 @@ class _SIFormState extends State<SIForm> {
             ),
             TextFormField(
               style: textStyle,
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+              ],
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                   labelText: 'Rate',
@@ -105,6 +113,9 @@ class _SIFormState extends State<SIForm> {
             ),
             TextFormField(
               style: textStyle,
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+              ],
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                   labelText: 'Time',
